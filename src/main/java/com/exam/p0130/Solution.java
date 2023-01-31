@@ -37,7 +37,7 @@ public class Solution {
      * https://school.programmers.co.kr/learn/courses/30/lessons/12933
      */
     public long solution3(long n) {
-        String[] ss = new StringBuilder(String.valueOf(n)).toString().split("");
+        String[] ss = String.valueOf(n).split("");
 
         Arrays.sort(ss, Comparator.reverseOrder());
 
