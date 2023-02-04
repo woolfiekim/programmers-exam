@@ -62,4 +62,22 @@ class LinkedListTest {
             Arguments.of(List.of(1, 2, 3, 4), 1, 2, 3));
     }
 
+
+    @ParameterizedTest
+    @MethodSource("testAddData")
+    void linklistAddData(List<Integer> list, int n1, int n2) {
+        LinkedList<Integer> ll = new LinkedList<>();
+        for (Integer item : list) {
+            ll.addNode(item);
+        }
+        ll.addNodeInside(n2, n1);
+        ll.printAll();
+    }
+
+    private static Stream<Arguments> testAddData(){
+        return Stream.of(
+            Arguments.of(List.of(1,2,3),1,5)
+        );
+    }
+
 }

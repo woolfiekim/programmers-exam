@@ -34,4 +34,32 @@ public class LinkedList<T> {
             }
         }
     }
+
+    public pNode<T> search(T data){
+        if(this.head == null){
+            return null;
+        } else{
+            pNode<T> node = this.head;
+            while(node != null){
+                if(node.data == data){
+                    return node;
+                } else{
+                    node = node.next;
+                }
+            }
+            return null;
+        }
+    }
+
+    public void addNodeInside(T data, T isData){
+        pNode<T> searchedNode = this.search(isData);
+
+        if(searchedNode == null){
+            this.addNode(data);
+        } else{
+            pNode<T> nextNode = searchedNode.next;
+            searchedNode.next = new pNode<>(data);
+            searchedNode.next.next = nextNode;
+        }
+    }
 }
