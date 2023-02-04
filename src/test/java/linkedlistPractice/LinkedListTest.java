@@ -80,4 +80,22 @@ class LinkedListTest {
         );
     }
 
+    @ParameterizedTest
+    @MethodSource("testDelData")
+    void linklistDelData(List<Integer> list, int n1) {
+        LinkedList<Integer> ll = new LinkedList<>();
+        for (Integer item : list) {
+            ll.addNode(item);
+        }
+        ll.printAll();
+        System.out.println(ll.delNode(n1));
+        ll.printAll();
+    }
+
+    private static Stream<Arguments> testDelData(){
+        return Stream.of(
+            Arguments.of(List.of(1,2,3,4,5),2)
+        );
+    }
+
 }
