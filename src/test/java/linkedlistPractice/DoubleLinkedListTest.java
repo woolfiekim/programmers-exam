@@ -12,14 +12,17 @@ public class DoubleLinkedListTest {
 
     @ParameterizedTest
     @MethodSource("testValue")
-    void doubleList(List<Integer> list){
+    void doubleList(List<Integer> list, int num1, int num2){
         DoubleLinkedList<Integer> MyLinkedList = new DoubleLinkedList<>();
 
         for (Integer item : list) {
             MyLinkedList.addNode(item);
         }
 
+        MyLinkedList.insertToFront(num1, num2);
+
         MyLinkedList.printAll();
+
         System.out.println(MyLinkedList.searchFromHead(1));
         System.out.println(MyLinkedList.searchFromTail(1));
         System.out.println(MyLinkedList.searchFromTail(6));
@@ -27,7 +30,7 @@ public class DoubleLinkedListTest {
 
     private static Stream<Arguments> testValue(){
         return Stream.of(
-          Arguments.of(List.of(1,2,4,6,8,3))
+          Arguments.of(List.of(1,2,4,6,8,3), 4, 3)
         );
     }
 }

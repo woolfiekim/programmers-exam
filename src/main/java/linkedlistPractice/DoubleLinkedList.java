@@ -72,4 +72,34 @@ public class DoubleLinkedList<T> {
             return null;
         }
     }
+
+    public boolean insertToFront(T existedData, T addData){
+        if(this.head == null){
+            this.head = new jNode<T>(addData);
+            this.tail = this.head;
+            return true;
+        } else if (this.head.data == existedData) {
+            jNode<T> newHead = new jNode<T>(addData);
+            newHead.next = this.head;
+            this.head = newHead;
+            return true;
+        } else{
+            jNode<T> node = this.head;
+            while(node != null){
+                if(node.data == existedData) {
+                    jNode<T> nodePrev = node.prev;
+
+                    nodePrev.next = new jNode<T>(addData);
+                    nodePrev.next.next = node;
+
+                    nodePrev.next.prev = nodePrev;
+                    node.prev = nodePrev.next;
+                    return true;
+                } else{
+                    node = node.next;
+                }
+            }
+            return false;
+        }
+    }
 }
