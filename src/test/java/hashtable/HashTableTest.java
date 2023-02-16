@@ -12,18 +12,22 @@ import org.junit.jupiter.params.provider.MethodSource;
 class HashTableTest {
 
     @ParameterizedTest
-    @MethodSource("testValue")
     void HashTable(){
         HashTable hashTable = new HashTable(20);
         hashTable.saveData("DaveLee", "000000");
         hashTable.saveData("Dead", "11111");
+        hashTable.saveData("hash", "22222");
+        hashTable.saveData("vvvv", "33333");
         System.out.println(hashTable.getData("DaveLee"));
     }
 
-    private static Stream<Arguments> testValue(){
-        return Stream.of(
-            Arguments.of(List.of(1,2,4,6,8,3), 4, 3)
-        );
+    @ParameterizedTest
+    void chaing(){
+        Chaining chaining = new Chaining(20);
+        chaining.saveData("DaveLee", "000000");
+        chaining.saveData("Dead", "11111");
+        chaining.saveData("hash", "22222");
+        chaining.saveData("vvvv", "33333");
+        System.out.println(chaining.getData("DaveLee"));
     }
-
 }
