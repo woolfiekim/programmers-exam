@@ -1,4 +1,4 @@
-package p0130;
+package com.exam.p0130;
 
 import java.util.stream.Stream;
 
