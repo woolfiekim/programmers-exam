@@ -81,4 +81,9 @@ public class Tree {
             }
         }
     }
+
+    public void delete2(){
+        
+    }
+
 }
